@@ -4,6 +4,14 @@ from sqlalchemy import create_engine
 
 
 def load_data(messages_filepath, categories_filepath):
+
+    """
+
+    :param messages_filepath:
+    :param categories_filepath:
+    :return:
+    """
+
     # load data in csv format
     message = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
