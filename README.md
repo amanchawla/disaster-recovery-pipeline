@@ -49,3 +49,17 @@ from sklearn.metrics import classification_report, accuracy_score, precision_sco
 
 ```
     
+## How Model has been developed?
+
+### How messages are cleaned?
+- All Words in messages have been tokenised
+- In Tokenisation, each word is standardised to its root word so that different version of same word are treated equally
+- NLTK English Stopword is also to remove some common English words which have no significance in identification of themes
+
+### What features have been created?
+- Scikit Learn - CountVectorizer - used to  matrix of token counts
+- Scikit Learn - TfidfTransformer - Transform a count matrix to a normalized tf or tf-idf representation
+
+### What machine learning technique used?
+- RandomForestClassification Technique used.
+    
