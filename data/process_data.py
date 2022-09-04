@@ -32,6 +32,9 @@ def clean_data(df):
     # Merging the cleaned category columns back to main dataframe
     df = pd.merge(df, categories_df, left_index=True, right_index=True).drop(columns='categories')
 
+    # removing category with only 1 value
+    df.drop('child_alone', axis=1, inplace=True)
+
     # removing rows having value other than 0 or 1
     df[df['related'] == 2]
 
