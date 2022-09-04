@@ -63,3 +63,14 @@ from sklearn.metrics import classification_report, accuracy_score, precision_sco
 ### What machine learning technique used?
 - RandomForestClassification Technique used.
     
+
+
+
+## Instructions
+
+### To create a processed sqlite db
+python process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db
+### To train and save a pkl model
+python train_classifier.py ../data/DisasterResponse.db classifier.pkl
+### To deploy the application locally
+python run.py
