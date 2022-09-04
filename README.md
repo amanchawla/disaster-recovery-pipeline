@@ -74,3 +74,23 @@ python process_data.py disaster_messages.csv disaster_categories.csv DisasterRes
 python train_classifier.py ../data/DisasterResponse.db classifier.pkl
 ### To deploy the application locally
 python run.py
+
+
+
+# Structure of Code
+
+
+* app
+  * template
+    * master.html # main page of web app
+    * go.html # classification result page of web app
+  * run.py # Flask file that runs app 
+* data
+  * disaster_categories.csv # data to process
+  * disaster_messages.csv # data to process
+  * process_data.py
+  * DisasterResponse.db # database to save clean data to
+* models
+  * train_classifier.py
+  * classifier.pkl # saved model
+* README.md
