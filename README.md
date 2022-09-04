@@ -1,0 +1,51 @@
+
+# Disaster Recovery Response
+
+During disaster situation, twitter gets flooded with messages. Response team need to go through these message quickly so that they can forward the message to concerned team.
+
+Response team get flooded with such messaged when they have least capacity to handle such load.
+
+With this objective, here I have created an application which can allow team to understand which response team should act. 
+
+Here is I have used text mining and machine learning modelling to undetstand the theme of message and creating flags to tell which team should act.
+
+
+## Installation
+
+Install my-project with npm
+
+```bash
+import json
+import plotly
+import pandas as pd
+
+# For Web Development
+from flask import Flask
+from flask import render_template, request, jsonify
+from plotly.graph_objs import Bar
+from sklearn.externals import joblib
+from sqlalchemy import create_engine
+
+# For Text Mining NLTK library has been used
+import re
+import nltk
+nltk.download(['punkt', 'wordnet', 'stopwords', 'averaged_perceptron_tagger'])
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+
+# For Machine Learning Development
+import pickle
+from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import classification_report, accuracy_score, precision_score, recall_score, f1_score, make_scorer
+
+
+
+```
+    
