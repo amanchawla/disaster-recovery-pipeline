@@ -25,6 +25,15 @@ from sklearn.metrics import classification_report, accuracy_score, precision_sco
 
 
 def load_data(database_filepath):
+
+    """
+
+    Load data from SQL data created during data cleaning and data preparation
+
+    :param database_filepath:
+    :return:
+    """
+
     engine = create_engine('sqlite:///' + database_filepath)
     conn = engine.connect()
     df = pd.read_sql('SELECT * FROM Messages', conn)
@@ -36,6 +45,15 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+
+    """
+
+    Create clean tokens from the message so that it can be used to feature creation
+
+    :param text:
+    :return:
+    """
+
     # Make text in lower case and remove any special character
     text = re.sub(r"[^a-zA-Z]", " ", text.lower())
 
@@ -56,6 +74,14 @@ def tokenize(text):
 
 
 def build_model():
+
+    """
+
+    Building model through pipeline which contain feature extraction steps and classifier
+
+    :return:
+    """
+
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
@@ -73,8 +99,16 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
+
     """
+
     This function creates dataframe with all evaluation matrics for each output category
+
+    :param model:
+    :param X_test:
+    :param Y_test:
+    :param category_names:
+    :return:
     """
 
     true_array = np.array(Y_test)
@@ -99,6 +133,16 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+
+    """
+
+    Save model as pickle file so that it can be picked by Web Application
+
+    :param model:
+    :param model_filepath:
+    :return:
+    """
+
     pickle.dump(model, open(model_filepath, 'wb'))
 
 
