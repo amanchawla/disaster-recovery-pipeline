@@ -53,7 +53,7 @@ def clean_data(df):
     df.drop('child_alone', axis=1, inplace=True)
 
     # removing rows having value other than 0 or 1
-    df[df['related'] == 2]
+    df[df['related'] != 2]
 
     # Removing duplicates
     df.drop_duplicates(inplace=True)
