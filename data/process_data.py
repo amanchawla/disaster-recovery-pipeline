@@ -22,6 +22,15 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+
+    """
+
+    Clean dataframe
+
+    :param df:
+    :return:
+    """
+
     # create a new dataframe with only categories variable and creating multiple variable out of categories
     categories_df = df['categories'].str.split(pat=';', expand=True)
 
@@ -53,6 +62,14 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
+
+    """
+    Save data in SQL database so that can it can be used for model developmemnt independently
+    :param df:
+    :param database_filename:
+    :return:
+    """
+
     engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('Messages', engine, index=False)
 
